@@ -1,7 +1,7 @@
 <?php
 	//Gets input from frontend request and decodes it
-	$request = file_get_contents('php://input');
-	$recieve = json_decode($request);
+	$request = file_get_contents("php://input");
+	$recieve = json_decode($request, true);
 	//Array for NJIT and DB login results
 	$results = array();
 	
