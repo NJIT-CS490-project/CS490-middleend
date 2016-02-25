@@ -17,7 +17,7 @@
 	$ch1 = curl_init();
 	$ch2 = curl_init();
 	//Each url needed for logins
-	$db_url = "http://osl84.njit.edu/~mjc55/CS490/user/login.php";
+	$db_url = "https://osl84.njit.edu/~mjc55/CS490/user/login.php";
 	$njit_url = "https://cp4.njit.edu/cp/home/login";
 
 	curl_setopt($ch1, CURLOPT_URL, $db_url);
