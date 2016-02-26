@@ -11,23 +11,23 @@
 	$pass =	$recieve["pass"];
 	
 	//Create array of fields needed for each login
-	$db_fields = array("user" => $user, "pass" => $pass);
+	$db_fields = array("username" => $user, "password" => $pass);
 	$njit_fields = array("user" => $user, "pass" => $pass, "uuid" => "0xACA021");
 
 	$ch1 = curl_init();
 	$ch2 = curl_init();
 	//Each url needed for logins
-	$db_url = "https://osl84.njit.edu/~mjc55/CS490/src/user/login.php";
+	$db_url = "https://web.njit.edu/~mjc55/CS490/src/user/login.php";
 	$njit_url = "https://cp4.njit.edu/cp/home/login";
 
 	curl_setopt($ch1, CURLOPT_URL, $db_url);
 	curl_setopt($ch1, CURLOPT_POST, 1);
-	curl_setopt($ch1, CURLOPT_POSTFIELDS, http_build_query(db_fields));
+	curl_setopt($ch1, CURLOPT_POSTFIELDS, json_encode($db_fields));
 	curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
 	$db_result = curl_exec($ch1);
 	
 	//Stores result from cURL to DB
-	$results["db"] = $db_result;
+	$results["db"] = empty($db_result);
 
 	curl_close($ch1);
 
