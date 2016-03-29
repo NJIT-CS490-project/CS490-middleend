@@ -5,11 +5,11 @@
 
 	//Array for NJIT and DB login results
 	$results = array();
-	
+
 	//Store username and password in variables
 	$user = $recieve["user"];
 	$pass =	$recieve["pass"];
-	
+
 	//Create array of fields needed for each login
 	$db_fields = array("username" => $user, "password" => $pass);
 	$njit_fields = array("user" => $user, "pass" => $pass, "uuid" => "0xACA021");
@@ -25,7 +25,7 @@
 	curl_setopt($ch1, CURLOPT_POSTFIELDS, json_encode($db_fields));
 	curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
 	$db_result = curl_exec($ch1);
-	
+
 	//Stores result from cURL to DB
 	$results["db"] = empty($db_result);
 
@@ -36,11 +36,11 @@
 	curl_setopt($ch2, CURLOPT_POSTFIELDS, http_build_query($njit_fields));
 	curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
 	$njit_result = curl_exec($ch2);
-	
+
 	//Stores result from cURL to NJIT
 	$results["njit"] = strpos($njit_result, "loginok.html") !== false;
 
 	curl_close($ch2);
-	
+
 	echo json_encode($results);
 ?>
