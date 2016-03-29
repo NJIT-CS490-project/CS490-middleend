@@ -15,13 +15,13 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$db_result = json_decode(curl_exec($ch), true);
 
-  if(empty($db_result)) {
-    results["message"] = "No results found";
+  if(!curl_errno($ch) && curl_getinfo($ch) == 200) {
+    $results["message"] = "Results found";
+    $results["count"] = sizeof($db_result);
+    $results["events"] = $db_result;
   }
   else {
-    results["message"] = "Results found";
-    results["count"] = sizeof($db_result);
-    results["events"] = $db_result;
+    $results["message"] = $db_result["message"];
   }
 	curl_close($ch);
 
