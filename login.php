@@ -22,11 +22,17 @@
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $db_fields);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$db_result = curl_exec($ch);
+	$db_result = json_decode(curl_exec($ch), true);
 
 	//Stores result from cURL to DB
-	$results["db"] = empty($db_result);
-
+    if(!curl_errno($ch) && curl_getinfo($ch) == 200) {
+        $results["message"] = "Valid login";    
+        $results["db"] = true;
+    }
+    else {
+        $results["message"] = $db_result['message'];
+        $results["db"] = false;
+    }
 	curl_close($ch);
 
 	echo json_encode($results);
