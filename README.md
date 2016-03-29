@@ -7,7 +7,7 @@ __Base URL__
 
 ### Search
 
-`GET search.php`
+#### `GET search.php`
 
 | param  | type   | description                 | required | default |
 |--------|--------|-----------------------------|----------|---------|
