@@ -25,3 +25,14 @@ __Base URL__
   "password": "password"
 }
 ```
+
+### Register
+
+#### `POST register.php`
+
+```json
+{
+  "username": "alice",
+  "password": "password"
+}
+```
