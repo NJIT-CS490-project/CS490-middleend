@@ -59,3 +59,10 @@ __Base URL__
 | param | type   | description               | required | default |
 |-------|--------|---------------------------|----------|---------|
 | id    | Number | ID of the event to delete | true     |         |
+
+### Logout
+
+#### `PUT logout.php`
+
+| param | type   | description               | required | default |
+|-------|--------|---------------------------|----------|---------|
