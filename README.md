@@ -36,3 +36,18 @@ __Base URL__
   "password": "password"
 }
 ```
+
+### Create
+
+#### `POST create.php`
+
+```json
+{
+  "title": "Event Title",
+  "description": "This is a description of the event",
+  "date": "1970-01-01",
+  "startTime": "7:45",
+  "endTime": "17:45",
+  "location": "123 Banana St."
+}
+```
