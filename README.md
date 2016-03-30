@@ -14,3 +14,14 @@ __Base URL__
 | string | String | String to search for        | true     |         |
 | count  | Number | Number of events to return  | false    | 10      |
 | offset | Number | Number to offset results by | false    | 0       |
+
+### Login
+
+#### `POST login.php`
+
+```json
+{
+  "username": "alice",
+  "password": "password"
+}
+```
