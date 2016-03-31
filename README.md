@@ -66,3 +66,10 @@ __Base URL__
 
 | param | type   | description               | required | default |
 |-------|--------|---------------------------|----------|---------|
+
+### self
+
+#### `GET self.php`
+
+| param  | type   | description                 | required | default |
+|--------|--------|-----------------------------|----------|---------|
