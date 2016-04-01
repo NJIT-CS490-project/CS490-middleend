@@ -21,7 +21,7 @@
 	curl_setopt($ch1, CURLOPT_POST, 1);
 	curl_setopt($ch1, CURLOPT_POSTFIELDS, json_encode($db_fields));
 	curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
-	$db_result = json_decode(curl_exec($ch1), true);
+	$db_result = json_decode(curl_exec($ch), true);
 
 	if(empty($db_result)){
 		$results["db"] = true;
@@ -35,3 +35,4 @@
 	curl_close($ch);
 
 	echo json_encode($results);
+?>
