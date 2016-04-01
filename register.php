@@ -19,17 +19,19 @@
 
 	curl_setopt($ch, CURLOPT_URL, $db_url);
 	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $db_fields);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $db_fields);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$db_result = json_decode(curl_exec($ch), true);
-
+	$db_result = curl_exec($ch);
+    
 	if(empty($db_result)){
 		$results["db"] = true;
 		$results["message"] = "Properly created account";
 	}
 	else{
-		$results["db"] = false;
-		$results["message"] = $db_result["message"];
+        $results["db"] = false;
+        $temp = json_decode($db_result, true);
+		$results["message"] = $temp["message"];
 	}
 
 	curl_close($ch);
