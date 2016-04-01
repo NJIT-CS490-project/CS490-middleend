@@ -16,26 +16,28 @@
 
 	$db_url = "https://web.njit.edu/~mjc55/CS490/public/user/login.php";
 
-    $headers = getallheaders();
-
-	curl_setopt($ch, CURLOPT_URL, $db_url);
+    curl_setopt($ch, CURLOPT_URL, $db_url);
 	curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($db_fields));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $db_result = json_decode(curl_exec($ch), true);
-    
+
+    $headers = getallheaders();
+
     if($db_result["sessionID"]){
 		$results["db"] = true;
 		$results["message"] = "Valid login";
         $results["sessionID"] = $db_result["sessionID"];	
-    }
-    else{
+        $sessionID = $results['sessionID'];
+        header("Set-Cookie: PHPSESSID=$sessionID");
+    } else{
 		$results["db"] = false;
         $results["message"] = $db_result["message"];
         $results["sessionID"] = 0;
     }
 
+
     curl_close($ch);
-	echo json_encode($results);
+    echo json_encode($results);
 ?>

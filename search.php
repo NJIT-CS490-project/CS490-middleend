@@ -1,24 +1,19 @@
 <?php
-	$request = file_get_contents("php://input");
-  $recieve = json_decode($request, true);
 
   $results = array();
 
-	$query = $recieve["string"];
-	$count = (empty($recieve["count"])) ? 10 : $recieve["count"];
-	$offset = (empty($recieve["offset"])) ? 0 : $recieve["offset"];
-
-	$db_fields = json_encode(array("string" => $query));
-
+	$query = $_GET["string"];
+	$count = (empty($_GET["count"])) ? 10 : $recieve["count"];
+	$offset = (empty($_GET["offset"])) ? 0 : $recieve["offset"];
+    
 	$ch = curl_init();
 
-	$db_url = "https://web.njit.edu/~mjc55/CS490/public/event/list.php";
+	$db_url = "https://web.njit.edu/~mjc55/CS490/public/event/list.php?query=$query";
 
     $headers = getallheaders();
 
 	curl_setopt($ch, CURLOPT_URL, $db_url);
 	curl_setopt($ch, CURLOPT_HTTPGET, 1);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $db_fields);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$db_result = json_decode(curl_exec($ch), true);

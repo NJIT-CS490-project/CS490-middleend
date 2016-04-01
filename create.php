@@ -1,6 +1,6 @@
 <?php
 	$request = file_get_contents("php://input");
-  $recieve = json_decode($request, true);
+    $recieve = json_decode($request, true);
 
    // var_dump($request);
 
@@ -26,7 +26,7 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']));
     $db_result = json_decode(curl_exec($ch), true);
-    
+
 	if(empty($db_result)){
 		$results["db"] = true;
 		$results["message"] = "Event successfully created";

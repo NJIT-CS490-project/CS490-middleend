@@ -10,10 +10,11 @@
     curl_setopt($ch, CURLOPT_URL, $db_url);
 	curl_setopt($ch, CURLOPT_HTTPGET, 1);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']));
+    curl_setopt($ch, CURLOPT_COOKIE, $headers['Cookie']);
     $db_result = curl_exec($ch);
 
-	curl_close($ch);
 
+	curl_close($ch);
+    header('Cookie: '.$headers['Cookie']);
 	echo $db_result;
 ?>
