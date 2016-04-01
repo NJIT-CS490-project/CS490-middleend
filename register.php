@@ -2,7 +2,7 @@
 	//Gets input from frontend request and decodes it
 	$request = file_get_contents("php://input");
 	$recieve = json_decode($request, true);
-
+    
 	//Array for NJIT and DB login results
 	$results = array();
 
@@ -22,8 +22,15 @@
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, $db_fields);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    $headers = getallheaders();
+
+    if (isset($headers['Cookie']) && $endpoint != 'login.php') {
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [ 'Cookie: ' . $headers['Cookie']);
+    }
+
 	$db_result = curl_exec($ch);
-    
+
 	if(empty($db_result)){
 		$results["db"] = true;
 		$results["message"] = "Properly created account";

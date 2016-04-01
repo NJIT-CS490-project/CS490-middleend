@@ -15,6 +15,12 @@
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_exec($ch);
 
+    $headers = getallheaders();
+
+    if (isset($headers['Cookie']) && $endpoint != 'login.php') {
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [ 'Cookie: ' . $headers['Cookie']);
+    }
+
 	curl_close($ch);
 
 	echo "";

@@ -22,6 +22,13 @@
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $db_fields);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$db_result = json_decode(curl_exec($ch), true);
+    
+    $headers = getallheaders();
+
+    if (isset($headers['Cookie']) && $endpoint != 'login.php') {
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [ 'Cookie: ' . $headers['Cookie']);
+    }
+
 
 	if(empty($db_result)){
 		$results["db"] = true;
