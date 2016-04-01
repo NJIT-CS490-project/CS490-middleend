@@ -14,19 +14,15 @@
 
 	$db_url = "https://web.njit.edu/~mjc55/CS490/public/event/list.php";
 
+    $headers = getallheaders();
+
 	curl_setopt($ch, CURLOPT_URL, $db_url);
 	curl_setopt($ch, CURLOPT_HTTPGET, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $db_fields);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$db_result = json_decode(curl_exec($ch), true);
 
-    $headers = getallheaders();
-
-    if (isset($headers['Cookie']) && $endpoint != 'login.php') {
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [ 'Cookie: ' . $headers['Cookie']);
-    }
-
-        
 	if(empty($db_result)){
 		$results["db"] = false;
 		$results["message"] = "No events found";
