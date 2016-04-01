@@ -8,7 +8,7 @@
 	$count = (empty($recieve["count"])) ? 10 : $recieve["count"];
 	$offset = (empty($recieve["offset"])) ? 0 : $recieve["offset"];
 
-	$db_fields = json_encode(array("name" => $title, "start" => $start, "end" => $end, "location" => $location));
+	$db_fields = json_encode(array("string" => $query));
 
 	$ch = curl_init();
 
