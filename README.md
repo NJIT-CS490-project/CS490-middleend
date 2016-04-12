@@ -73,3 +73,10 @@ __Base URL__
 
 | param  | type   | description                 | required | default |
 |--------|--------|-----------------------------|----------|---------|
+
+### Locations
+
+#### `GET locations.php`
+
+| param  | type   | description                 | required | default |
+|--------|--------|-----------------------------|----------|---------|
