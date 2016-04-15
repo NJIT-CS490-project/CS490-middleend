@@ -8,7 +8,7 @@
     $location    = $recieve['location'];
 
    //Update URL when endpoint is up 
-    $db_url = "https://web.njit.edu/~mjc55/CS490/public/event/";
+    $db_url = "https://web.njit.edu/~mjc55/CS490/event/";
 
     //Update db_fields when endpoint is up
     $db_fields = array();

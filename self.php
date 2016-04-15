@@ -3,7 +3,7 @@
 
 	$ch = curl_init();
 
-	$db_url = "https://web.njit.edu/~mjc55/CS490/public/user/self.php";
+	$db_url = "https://web.njit.edu/~mjc55/CS490/user/self.php";
 
     $headers = getallheaders();
 

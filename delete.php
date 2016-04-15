@@ -4,7 +4,7 @@
 	$db_fields = json_encode(array("id" => $id));
 	$ch = curl_init();
 
-	$db_url = "https://web.njit.edu/~mjc55/CS490/public/event/delete.php";
+	$db_url = "https://web.njit.edu/~mjc55/CS490/event/delete.php";
 
     $headers = getallheaders();
 

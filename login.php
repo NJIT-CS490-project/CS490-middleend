@@ -14,7 +14,7 @@
     $db_fields = array("username" => $user, "password" => $pass);
     $ch = curl_init();
 
-	$db_url = "https://web.njit.edu/~mjc55/CS490/public/user/login.php";
+	$db_url = "https://web.njit.edu/~mjc55/CS490/user/login.php";
 
     curl_setopt($ch, CURLOPT_URL, $db_url);
 	curl_setopt($ch, CURLOPT_POST, 1);

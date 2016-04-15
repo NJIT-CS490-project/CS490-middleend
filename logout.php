@@ -1,7 +1,7 @@
 <?php
 	$ch = curl_init();
 
-	$db_url = "https://web.njit.edu/~mjc55/CS490/public/user/logout.php";
+	$db_url = "https://web.njit.edu/~mjc55/CS490/user/logout.php";
 
     $headers = getallheaders();
 

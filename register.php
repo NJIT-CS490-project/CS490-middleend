@@ -15,7 +15,7 @@
 
 	$ch = curl_init();
 
-	$db_url = "https://web.njit.edu/~mjc55/CS490/public/user/create.php";
+	$db_url = "https://web.njit.edu/~mjc55/CS490/user/create.php";
 
 	curl_setopt($ch, CURLOPT_URL, $db_url);
 	curl_setopt($ch, CURLOPT_POST, 1);
