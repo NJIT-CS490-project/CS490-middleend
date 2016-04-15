@@ -80,3 +80,16 @@ __Base URL__
 
 | param  | type   | description                 | required | default |
 |--------|--------|-----------------------------|----------|---------|
+
+### Modify Events 
+
+#### `POST modify.php`
+
+```json
+{
+  "description": "This is a description of the event",
+  "startTime": "7:45",
+  "endTime": "17:45",
+  "location": "123 Banana St."
+}
+```
