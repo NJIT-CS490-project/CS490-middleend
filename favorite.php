@@ -13,7 +13,7 @@
                         );
 
         //Update URL when endpoint is put up
-        $db_url = "https://web.njit.edu/~mjc55/CS490/public/event/";
+        $db_url = "https://web.njit.edu/~mjc55/CS490/event/";
         $headers = getallheaders();
         $header_array = array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']);
 

@@ -8,7 +8,7 @@
     
 	$ch = curl_init();
 
-	$db_url = "https://web.njit.edu/~mjc55/CS490/public/event/list.php?query=$query";
+	$db_url = "https://web.njit.edu/~mjc55/CS490/event/list.php?query=$query";
 
     $headers = getallheaders();
 
