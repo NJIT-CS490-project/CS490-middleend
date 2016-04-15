@@ -26,6 +26,8 @@ __Base URL__
 | search    | String   | Title or description must contain this string       |
 | startDate | Date     | Earliest date an event may be scheduled to happen   |
 | endDate   | Date     | Latest date an event may be schedule to happen      |
+| startTime | Time     | Earliest time an event may be running               |
+| endTime   | Time     | Latest time an event may be running                 |
 | building  | Building | Building an event must occur in                     |
 | room      | String   | Room must contain this as a substring               |
 | createdBy | String   | Username of the creator of this event               |
