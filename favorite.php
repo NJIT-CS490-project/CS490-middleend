@@ -8,12 +8,11 @@
         $eventID = $recieve['id'];
         $db_fields = json_encode(
                                 array(
-                                        'id' => $eventID
+                                        'eventID' => $eventID
                                 )
                         );
 
-        //Update URL when endpoint is put up
-        $db_url = "https://web.njit.edu/~mjc55/CS490/event/";
+        $db_url = "https://web.njit.edu/~mjc55/CS490/event/favorite.php";
         $headers = getallheaders();
         $header_array = array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']);
 
@@ -24,21 +23,16 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_exec($ch);
 
-        /*
-         *
-         * Return message if properly favorited event
-         *
-         * if(curl_getinfo($ch)['http_code'] === 200){
-         *
-         *      http_response_code(200);
-         * }
-         *
-         * else {
-         *
-         *      http_response_code(400);
-         * }
-         *
-         */
+        if(curl_getinfo($ch)['http_code'] === 200){
+        
+                http_response_code(200);
+        
+        }
+        
+        else {
+                
+                http_response_code(400);
+        }
 
         curl_close($ch);
 
