@@ -21,19 +21,19 @@ __Base URL__
 
 ##### Filtering
 
-| param     | type     | description                                         |
-|-----------|----------|-----------------------------------------------------|
-| search    | String   | Title or description must contain this string       |
-| startDate | Date     | Earliest date an event may be scheduled to happen   |
-| endDate   | Date     | Latest date an event may be schedule to happen      |
-| startTime | Time     | Earliest time an event may be running               |
-| endTime   | Time     | Latest time an event may be running                 |
-| building  | Building | Building an event must occur in                     |
-| room      | String   | Room must contain this as a substring               |
-| createdBy | String   | Username of the creator of this event               |
-| favorited | Boolean  | If true, only include events favorited by this user |
-| onlyNJIT  | Boolean  | If true, only include events from NJIT system       |
-| onlyUser  | Boolean  | If true, only include events created by users       |
+| param     | type     | description                                                |
+|-----------|----------|------------------------------------------------------------|
+| search    | String   | Title or description must contain this string              |
+| startDate | Date     | Earliest date an event may be scheduled to happen          |
+| endDate   | Date     | Latest date an event may be schedule to happen             |
+| startTime | Time     | Earliest time an event may be running                      |
+| endTime   | Time     | Latest time an event may be running                        |
+| building  | Building | Building an event must occur in                            |
+| room      | String   | Room must contain this as a substring                      |
+| favorited | Boolean  | If true, only include events favorited by this user        |
+| mine      | Boolean  | If true, only include events created by the searching user |
+| onlyNJIT  | Boolean  | If true, only include events from NJIT system              |
+| onlyUser  | Boolean  | If true, only include events created by users              |
 
 ##### Returns
 
