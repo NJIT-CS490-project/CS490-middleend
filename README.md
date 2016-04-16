@@ -130,7 +130,7 @@ __Base URL__
 
 ```json
 {
-  "eventID": "1";
+  "eventID": "1"
 }
 ```
 
@@ -140,6 +140,6 @@ __Base URL__
 
 ```json
 {
-  "eventID": "1";
+  "eventID": "1"
 }
 ```
