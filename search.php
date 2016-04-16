@@ -8,22 +8,25 @@
     
 	$ch = curl_init();
 
-	$db_url = "https://web.njit.edu/~mjc55/CS490/event/list.php?query=$query";
+	$db_url = "https://web.njit.edu/~mjc55/CS490/event/search.php?query=$query";
 
-    $headers = getallheaders();
+        $headers = getallheaders();
 
 	curl_setopt($ch, CURLOPT_URL, $db_url);
 	curl_setopt($ch, CURLOPT_HTTPGET, 1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Cookie: ' . $headers['Cookie']));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$db_result = json_decode(curl_exec($ch), true);
 
 	if(empty($db_result)){
-		$results["db"] = false;
+        
+                $results["db"] = false;
 		$results["message"] = "No events found";
 	}
-	else{
-		$results["db"] = true;
+        
+        else{
+                
+                $results["db"] = true;
 		$results["message"] = "Events found";
 		$results["events"] = $db_result;
 	}

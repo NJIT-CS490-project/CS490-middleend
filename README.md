@@ -123,3 +123,23 @@ __Base URL__
   "location": "123 Banana St."
 }
 ```
+
+### Favorite Events 
+
+#### `POST favorite.php`
+
+```json
+{
+  "eventID": "1"
+}
+```
+
+### Unfavorite Events 
+
+#### `POST unfavorite.php`
+
+```json
+{
+  "eventID": "1"
+}
+```

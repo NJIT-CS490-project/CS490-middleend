@@ -12,7 +12,7 @@
                                 )
                         );
 
-        $db_url = "https://web.njit.edu/~mjc55/CS490/event/favorite.php";
+        $db_url = "https://web.njit.edu/~mjc55/CS490/event/unfavorite.php";
         $headers = getallheaders();
         $header_array = array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']);
 
