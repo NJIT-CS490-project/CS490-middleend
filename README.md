@@ -118,10 +118,11 @@ __Base URL__
 
 ```json
 {
-  "description": "This is a description of the event",
+  "date": "2017-01-01"
   "startTime": "7:45",
   "endTime": "17:45",
-  "location": "123 Banana St."
+  "building": "Place",
+  "room": "231"
 }
 ```
 
