@@ -23,6 +23,7 @@ __Base URL__
 
 | param     | type     | description                                                |
 |-----------|----------|------------------------------------------------------------|
+| id        | Number   | The exact event id to search for                           |
 | search    | String   | Title or description must contain this string              |
 | startDate | Date     | Earliest date an event may be scheduled to happen          |
 | endDate   | Date     | Latest date an event may be schedule to happen             |
