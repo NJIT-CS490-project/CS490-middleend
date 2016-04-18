@@ -114,15 +114,16 @@ __Base URL__
 
 ### Modify Events 
 
-#### `POST modify.php`
+#### `PUT modify.php`
 
 ```json
 {
-  "date": "2017-01-01"
+  "date": "2017-01-01",
   "startTime": "7:45",
   "endTime": "17:45",
   "building": "Place",
-  "room": "231"
+  "room": "231",
+  "id": 1
 }
 ```
 
