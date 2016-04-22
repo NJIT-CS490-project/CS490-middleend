@@ -7,18 +7,19 @@
   $results = array();
 
 	$title = $recieve["title"];
-	$description = $recieve["description"];
+        $description = $recieve["description"];
 	$date = $recieve["date"];
-	$start = $recieve["startTime"];
-	$end = $recieve["endTime"];
+	$start = $date ." ". $recieve["startTime"];
+	$end = $date ." " . $recieve["endTime"];
 	$location = $recieve["location"];
+        $building = $recieve["building"];
+        $room = $recieve["room"];
 
-	$db_fields = json_encode(array("name" => $title, "start" => $start, "end" => $end, "location" => $location));
+	$db_fields = json_encode(array("name" => $title, "start" => $start, "end" => $end, "location" => $location, "building" => $building, "room" => $room, "description" => $description));
 
 	$ch = curl_init();
 
 	$db_url = "https://web.njit.edu/~mjc55/CS490/event/create.php";
-
     $headers = getallheaders();
 	curl_setopt($ch, CURLOPT_URL, $db_url);
 	curl_setopt($ch, CURLOPT_POST, 1);
