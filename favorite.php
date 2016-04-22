@@ -21,7 +21,9 @@
         curl_setopt($ch, CURLOPT_POSTFIELDS, $db_fields);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header_array);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_exec($ch);
+        $db_result =curl_exec($ch);
+        
+        var_dump($db_result);
 
         if(curl_getinfo($ch)['http_code'] === 200){
         
@@ -31,7 +33,7 @@
         
         else {
                 
-                http_response_code(400);
+                http_response_code(curl_getinfo($ch)['http_code']);
         }
 
         curl_close($ch);
