@@ -2,7 +2,7 @@
 
   $results = array();
 
-	$query = $_GET["string"];
+	$query = $_GET["search"];
 	$count = (empty($_GET["count"])) ? 10 : $_GET["count"];
 	$offset = (empty($_GET["offset"])) ? 0 : $_GET["offset"];
         $order = (empty($_GET["order"])) ? "asc" : $_GET["order"];
@@ -21,8 +21,7 @@
 	$db_result = json_decode(curl_exec($ch), true);
 
 	if(empty($db_result)){
-        
-		$results["message"] = "No events found";
+                $results = array();        
 	}
         
         else{

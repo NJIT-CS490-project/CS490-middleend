@@ -15,8 +15,7 @@
 
         if(empty($db_result)){
 
-                $results["message"] = "No events found";
-
+                echo json_encode(array());
         }
         else {
 
