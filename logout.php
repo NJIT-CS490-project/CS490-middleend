@@ -15,6 +15,7 @@
 
   if(empty($db_result)){
     echo "Succesfully logged out";
+    header("Set-Cookie: PHPSESSID=0");
     die();
   }
   else{
