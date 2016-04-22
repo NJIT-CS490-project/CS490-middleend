@@ -5,13 +5,15 @@
     $description = $recieve['description'];
     $startTime   = $recieve['startTime'];
     $endTime     = $recieve['endTime'];
-    $location    = $recieve['location'];
+    $building    = $recieve['building'];
+    $room        = $recieve['room'];
+    $id          = $recieve['id'];
 
    //Update URL when endpoint is up 
-    $db_url = "https://web.njit.edu/~mjc55/CS490/event/";
+    $db_url = "https://web.njit.edu/~mjc55/CS490/event/update.php";
 
     //Update db_fields when endpoint is up
-    $db_fields = array();
+    $db_fields = array("description" => $description, "startTime" => $startTime, "endTime" => $endTime, "building" => $building, "room" => $room, "id" => $id);
     $header_fields = array('Content-Type: application/json', 'Cookie: ' . $headers['Cookie']);
     $response = array();
     $headers = getallheaders();
@@ -24,7 +26,7 @@
 
 
     //Need to fix logic once endpoint is put up
-    if(curl_getinfo($ch)['http_code'] === 200) {
+    if(curl_getinfo($ch)['http_code'] !== 200) {
         http_response_code(400);
         $reponse['message'] = "Failed to modify event";
     }

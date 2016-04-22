@@ -53,7 +53,8 @@ ini_set('display_startup_errors', 1);
         }
         if (array_key_exists('building', $_GET)) {
                 $building = $_GET["building"];
-                $param = $param . "&building=$building";
+                $param = $param . http_build_query($building);
+                var_dump($param);
         }
         if (array_key_exists('room', $_GET)) {
                 $room = $_GET["room"];
