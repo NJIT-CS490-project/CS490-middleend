@@ -28,37 +28,40 @@ $NJIT = array();
         $temp = "";
         $currEvent = array();
         foreach($event as $info) {
-                if ($info[0] === " "){
-                        $temp = $temp . $info;
-                        continue;
-                } 
-                if($temp !== ""){
-                        $info = $temp;
-                        $temp = "";
-                }
+                
                 if(strpos($info,"SUMMARY:") !== false){
                         $currEvent["name"] = substr($info,8,-1);
                 }
                 elseif(strpos($info,"LOCATION:") !== false){
-                        $currEvent["location"] = substr($info,9,-1);
+                        $value = explode(":", $info);
+                        $nvalue = array_slice($value, 1, 1)[0];
+                        $svalue = explode("\\", $nvalue);
+                        $fvalue = array_slice($svalue, 0, 1)[0];
+                        $currEvent["location"] = $fvalue;
+                        $words = explode(" ", $fvalue);
+
+                        
                 }
-                elseif(strpos($info,"DTSTART") !== false){
-                        $currEvent["start"] = substr($info,8,-1);
+                elseif(strpos($info,"START;") !== false){
+                        $value = explode(":", $info);
+                        $currEvent["start"] = strtotime(array_slice($value, -1, 1)[0]);
                 }
-                elseif(strpos($info,"DTEND") !== false){
-                        $currEvent["end"] = substr($info,6,-1);
+                elseif(strpos($info,"END;") !== false){
+                        $value = explode(":", $info);
+                        $currEvent["end"] = strtotime(array_slice($value, -1, 1)[0]);
                 }        
                 elseif(strpos($info,"UID:") !== false){
-                        $currEvent["id"] = $info;
+                        $value = explode("/", $info);
+                        $currEvent["id"] = array_slice($value, -1, 1)[0];
                 }        
         }
         array_push($NJIT, $currEvent);
     }
-        
+    
         foreach($NJIT as $event){
                 foreach($event as $key => $value){
-                        echo "$key $value <br>";
+                        echo "$key $value<br>";
                 }
         }
-        
+   
 ?>
