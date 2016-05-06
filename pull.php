@@ -117,6 +117,7 @@ $NJITLocations = array();
         $temp = "";
         $currEvent = array();
         foreach($event as $info) {
+                echo "$info<br>";
                 if(strpos($info,"SUMMARY:") !== false){
                         $currEvent["name"] = trim(substr($info,8,-1));
                 }
@@ -149,6 +150,8 @@ $NJITLocations = array();
 
     $sendEvents = json_encode(array("events" => $NJIT, "njit" => true));
 
+    //Used to populate DB with NJIT events
+
     $ch = curl_init();
     $db_url = "https://web.njit.edu/~mjc55/CS490/event/create.php";
     curl_setopt($ch, CURLOPT_URL, $db_url);
@@ -158,5 +161,6 @@ $NJITLocations = array();
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
     curl_exec($ch);
     curl_close($ch);
- echo $sendEvents;   
+
+    echo $sendEvents;   
 ?>
