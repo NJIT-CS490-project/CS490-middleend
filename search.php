@@ -6,6 +6,7 @@ ini_set('display_startup_errors', 1);
 
   $results = array();
 
+
 	$count = (empty($_GET["count"])) ? 10 : $_GET["count"];
 	$offset = (empty($_GET["offset"])) ? 0 : $_GET["offset"];
         $order = (empty($_GET["order"])) ? "asc" : $_GET["order"];
@@ -53,8 +54,8 @@ ini_set('display_startup_errors', 1);
         }
         if (array_key_exists('building', $_GET)) {
                 $building = $_GET["building"];
-                $param = $param . http_build_query($building);
-                var_dump($param);
+                $building = preg_replace("/ /", "+", $building);
+                $param = $param . "&building=$building";
         }
         if (array_key_exists('room', $_GET)) {
                 $room = $_GET["room"];
@@ -64,9 +65,11 @@ ini_set('display_startup_errors', 1);
 
 	$db_url = "https://web.njit.edu/~mjc55/CS490/event/search.php?";
         $headers = getallheaders();
+        $full_url = $db_url . $param;
 
-	curl_setopt($ch, CURLOPT_URL, $db_url . $param);
-	curl_setopt($ch, CURLOPT_HTTPGET, 1);
+
+	curl_setopt($ch, CURLOPT_URL, $full_url);
+        curl_setopt($ch, CURLOPT_HTTPGET, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Cookie: ' . $headers['Cookie']));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$db_result = json_decode(curl_exec($ch), true);
